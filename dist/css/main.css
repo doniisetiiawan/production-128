@@ -1,0 +1,29 @@
+._-client-about-About__About--1v-H5 {
+  color: green; }
+
+._-client-home-Home__Home--2jKwP {
+  color: blue; }
+
+body {
+  margin: 0;
+  padding: 0; }
+
+._-shared-components-layout-Header__Header--3vPMd {
+  background-color: #ddd;
+  padding: 20px;
+  margin: 0;
+  font-family: sans-serif; }
+  ._-shared-components-layout-Header__Header--3vPMd a {
+    color: #333;
+    text-decoration: none;
+    font-size: 18px; }
+
+._-shared-components-layout-Footer__Footer--33hOk {
+  font-family: sans-serif;
+  text-align: center; }
+
+._-client-todo-components-Todo__Todo--cgxtj ol {
+  font-family: sans-serif; }
+  ._-client-todo-components-Todo__Todo--cgxtj ol li {
+    padding: 10px; }
+
