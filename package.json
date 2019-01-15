@@ -6,12 +6,16 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development BABEL_ENV=development nodemon src/server --watch src/server --watch src/shared --exec babel-node --open",
     "start-analyzer": "cross-env NODE_ENV=development BABEL_ENV=development ANALYZER=true babel-node src/server",
-    "start-production": "npm run build && cross-env NODE_ENV=production babel-node src/server --open",
+    "start-production": "npm run build-production && cross-env NODE_ENV=production BABEL_ENV=production pm2 start --interpreter babel-node src/server",
     "build-development": "webpack --mode development",
+    "build-production": "npm run build-client-production && npm run build-server-production",
+    "build-client-production": "cross-env NODE_ENV=production BABEL_ENV=production babel-node node_modules/webpack/bin/webpack.js --progress --display-modules --config webpack/webpack.config.client.js",
+    "build-server-production": "cross-env NODE_ENV=production BABEL_ENV=production babel-node node_modules/webpack/bin/webpack.js --progress --config webpack/webpack.config.server.js",
     "build": "cross-env NODE_ENV=production webpack",
     "clean": "rd .\\dist\\ /s /q && rd .\\public\\app\\ /s /q",
     "test": "node scripts/test.js src --env=jsdom",
-    "coverage": "node scripts/test.js src --coverage --env=jsdom"
+    "coverage": "node scripts/test.js src --coverage --env=jsdom",
+    "stop": "pm2 kill"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/config/jest/setupTestFramework.js",
